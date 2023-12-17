@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classNames from 'classnames';
 import months from '../../data/MonthName';
 
@@ -16,6 +16,12 @@ const Calendar: React.FC<CalendarProps> = ({ year, month }) => {
     const totalDays: number = daysInMonth(month, year).getDate();
     const firstDayOfMonth: number = new Date(year, month, 1).getDay();
     const currentMonth = months[month];
+    const ref = React.useRef<HTMLDivElement>(null)
+    useEffect(() => {
+        if (new Date().getMonth() === month) {
+            ref.current?.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, [])
 
     //   const weeks : number = Math.ceil((totalDays + firstDayOfMonth) / 7);
     const daysArray: number[] = [];
@@ -26,7 +32,7 @@ const Calendar: React.FC<CalendarProps> = ({ year, month }) => {
     }
 
     return (
-        <div className="w-full max-w-md mx-auto p-4 border border-black my-1 rounded-md shadow-md ">
+        <div ref={ref} className="w-full max-w-md mx-auto p-4 border border-black my-1 rounded-md shadow-md ">
             <p className='text-xl font-bold text-black text-center my-2 '>{currentMonth}</p>
             <div className="grid grid-cols-7 gap-1 text-center">
                 {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
@@ -43,13 +49,13 @@ const Calendar: React.FC<CalendarProps> = ({ year, month }) => {
                 {/* Render days */}
                 {daysArray.map(day => {
                     const currentDate = new Date()
-                    
+
                     return <div
                         key={day}
                         className={classNames(
                             'text-center py-2 rounded',
                             {
-                                'bg-blue-500 text-white ': (day == currentDate.getDate() && month == currentDate.getMonth()) ,
+                                'bg-blue-500 text-white ': (day == currentDate.getDate() && month == currentDate.getMonth()),
                                 'text-gray-400': day === 0,
                                 'bg-gray-200': day % 2 === 0,
                                 'bg-gray-300': day % 2 !== 0,
