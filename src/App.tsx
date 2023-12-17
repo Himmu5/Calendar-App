@@ -1,18 +1,22 @@
-import Calendar from "./Components/Calendar/Calendar"
-import Form from "./Components/EventForm/Form"
+import { Link, Route, Routes } from "react-router-dom"
+import CalendarList from "./Components/Pages/CalendarList"
+import Events from "./Components/Pages/Events"
 
 function App() {
 
   return (
-    <>
-      <h1 className="text-center text-3xl my-4 ">Calendar 2023</h1>
-      <Form />
-      {
-        [...Array(12).keys()].map((month , index)=>{
-          return <Calendar key={index} year={2023} month={month} />
-        })
-      }
-    </>
+    <div className="max-w-4xl m-2 mx-auto" >
+      <div className="  flex items-center justify-between text-xl font-bold max-w-4xl mx-auto my-3  ">
+        <Link to={"/"}>Calendar 2023</Link>
+        <Link to={"/events"}>Events</Link>
+      </div>
+      <Routes >
+        <Route path="/" element={<CalendarList />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="*" element={<h1>404</h1>} />
+      </Routes>
+
+    </div>
   )
 }
 
