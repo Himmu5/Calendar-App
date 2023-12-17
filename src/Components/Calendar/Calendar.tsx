@@ -51,6 +51,7 @@ const Calendar: React.FC<CalendarProps> = ({ year, month }) => {
                     const currentDate = new Date()
                     const highlight = (day == currentDate.getDate() && month == currentDate.getMonth())
                     return <div
+                    style={{ backgroundColor : highlight ? '#0000FF' : '' , color : highlight ? '#FFFFFF' : '' }}
                         key={day}
                         className={classNames(
                             'text-center py-2 rounded',
@@ -59,7 +60,7 @@ const Calendar: React.FC<CalendarProps> = ({ year, month }) => {
                                 'bg-gray-200': day % 2 === 0,
                                 'bg-gray-300': day % 2 !== 0,
                             },
-                            'text-gray-900 ' + ( highlight ? 'bg-blue-500 text-white' : '') 
+                            'text-gray-900 '
                         )}
                     >
                         {day}
