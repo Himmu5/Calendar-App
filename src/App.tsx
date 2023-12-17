@@ -1,6 +1,5 @@
 import Calendar from "./Components/Calendar/Calendar"
 import Form from "./Components/EventForm/Form"
-import { Toaster } from "@/Components/ui/toaster"
 
 function App() {
 
@@ -13,7 +12,6 @@ function App() {
           return <Calendar key={index} year={2023} month={month} />
         })
       }
-      <Toaster />
     </>
   )
 }

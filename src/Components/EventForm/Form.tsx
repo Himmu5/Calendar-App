@@ -44,7 +44,6 @@ const formikHoc = withFormik({
     handleSubmit: (values , bag:FormikBag<P , I>) => {
         bag.props.createEvent(values)
         bag.props.toggleForm()
-        bag.props.resetForm();
     },
 })
 
