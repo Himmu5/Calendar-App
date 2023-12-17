@@ -55,10 +55,10 @@ const Calendar: React.FC<CalendarProps> = ({ year, month }) => {
                         className={classNames(
                             'text-center py-2 rounded',
                             {
-                                'bg-blue-500 text-white' : highlight,
                                 'text-gray-400': day === 0,
                                 'bg-gray-200': day % 2 === 0,
                                 'bg-gray-300': day % 2 !== 0,
+                                'bg-blue-500 text-white' : highlight
                             },
                             'text-gray-900'
                         )}
