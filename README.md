@@ -5,7 +5,8 @@ This simple application displays a list of months for a given year, highlighting
 ## Features
 
 - **Month Listing**: Shows a list of months in a year.
-- **Current Date Highlight**: Highlights the current date in the list.
+- **Current Date Highlight**: Highlights the current date in the calendar.
+- **Event creation**: add or show the event.
 
 ## Usage
 
