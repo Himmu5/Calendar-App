@@ -49,13 +49,13 @@ const Calendar: React.FC<CalendarProps> = ({ year, month }) => {
                 {/* Render days */}
                 {daysArray.map(day => {
                     const currentDate = new Date()
-
+                    const highlight = (day == currentDate.getDate() && month == currentDate.getMonth())
                     return <div
                         key={day}
                         className={classNames(
                             'text-center py-2 rounded',
                             {
-                                'bg-blue-500 text-white ' : (day == currentDate.getDate() && month == currentDate.getMonth()),
+                                'bg-blue-500 text-white' : highlight,
                                 'text-gray-400': day === 0,
                                 'bg-gray-200': day % 2 === 0,
                                 'bg-gray-300': day % 2 !== 0,
