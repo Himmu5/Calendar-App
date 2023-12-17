@@ -7,8 +7,8 @@ function App() {
   return (
     <div className="max-w-4xl m-2 mx-auto" >
       <div className="  flex items-center justify-between text-xl font-bold max-w-4xl mx-auto my-3  ">
-        <Link to={"/"}>Calendar 2023</Link>
-        <Link to={"/events"}>Events</Link>
+        <Link to={"/"} className="px-1 bg-gray-200 rounded-md">Calendar 2023</Link>
+        <Link to={"/events"} className="px-1 bg-gray-200 rounded-md">Events</Link>
       </div>
       <Routes >
         <Route path="/" element={<CalendarList />} />
