@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import classNames from 'classnames';
 import months from '../../data/MonthName';
+import DaysMapper from './DaysMapper';
 
-interface CalendarProps {
+type CalendarProps = {
     year: number;
     month: number;
 }
@@ -47,25 +47,9 @@ const Calendar: React.FC<CalendarProps> = ({ year, month }) => {
                     <div key={`empty-${i}`} className="text-center"></div>
                 ))}
                 {/* Render days */}
-                {daysArray.map(day => {
-                    const currentDate = new Date()
-                    const highlight = (day == currentDate.getDate() && month == currentDate.getMonth())
-                    return <div
-                    style={{ backgroundColor : highlight ? '#0000FF' : '' , color : highlight ? '#FFFFFF' : '' }}
-                        key={day}
-                        className={classNames(
-                            'text-center py-2 rounded',
-                            {
-                                'text-gray-400': day === 0,
-                                'bg-gray-200': day % 2 === 0,
-                                'bg-gray-300': day % 2 !== 0,
-                            },
-                            'text-gray-900 '
-                        )}
-                    >
-                        {day}
-                    </div>
-                })}
+                
+                <DaysMapper daysArray={daysArray} month={month} />
+
             </div>
         </div>
     );
