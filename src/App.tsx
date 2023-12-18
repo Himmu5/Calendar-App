@@ -15,7 +15,6 @@ function App() {
         <Route path="/events" element={<Events />} />
         <Route path="*" element={<h1>404</h1>} />
       </Routes>
-
     </div>
   )
 }
